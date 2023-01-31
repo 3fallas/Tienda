@@ -13,8 +13,48 @@
     left: 0;
 }
 
+.nav{
+    display: flex;
+
+}
+
+.nav-link{
+    color: white;
+    text-decoration: none;
+
+}
+
+.nav-menu{
+    display: flex;
+    margin: 0 10px;
+    line-height: 80px;
+    list-style: none;
+}
+
+.nav-menu-item{
+    font-size: 18px;
+    margin: 0 10px;
+
+}
+
+.nav-menu-link{
+    padding: 8px 12px;
+    border-radius: 8px;
+}
+
+.nav-menu-link:hover{
+    background-color: bisque;
+    transition: 0.5s;
+}
+.logo{
+    font-size: 30px;
+    font-weight: bold;
+    padding: 0 40px;
+    line-height: 80px;
+}
 body {
     padding: 80px 20px 0px;
+    font-family: sans-serif;
 }
 
 #aside {
@@ -52,4 +92,23 @@ body {
 
 #referencias {
     text-align: center;
+}
+
+.centrado{
+    text-align: center;
+
+}
+
+.derecha{
+    text-align: right;
+}
+
+tbody tr:nth-child(odd){
+    background-color: aqua;
+    color: azure;
+}
+
+tbody tr:nth-child(even){
+    color: aliceblue;
+    background-color: chartreuse;
 }

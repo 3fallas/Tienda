@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!-- lang es utilizado para informar el idioma de la pagina... -->
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Tienda en linea</title>
+    <!-- la siguiente etiqueta es usada para informar a los SEO de busqueda-->
+    <meta name="description" content="TechShop tienda en linea" />
+    <meta name="keyword" content="html,css,ufidelitas,web" />
+    <link href="css/menu.css" rel="stylesheet" />
+
+</head>
+
+<body>
+    <h1>Informe</h1>
+    <section>
+        <article>
+            <header>Form</header>
+            <form name="Info" action="registro.jsp" method="post">
+                <label>Nombre</label>
+                <input type="text" name="Nombre" value="" size="35" placeholder="Su nombre"/>
+                <br>
+                <label>Clave</label>
+                <input type="password" name="Clave" value="" size="10"/>
+                <br>
+                <input type="hidden" name="Id" value="1"/>
+                <br>
+                <label>Direccion</label>
+                <textarea name="Direccion" rows="4" cols="30">
+                    Manuel Antonio, 500 mts al lado del super Joseth.
+                </textarea>
+                <br>
+                <select name="nivel 1">
+                    <label>Educacion</label>
+                    <option>Primaria</option>
+                    <option>Secundaria</option>
+                    <option>Universidad</option>
+                </select>
+                <label>Sus pasatiempos</label>
+                <label>Futbol</label>
+                <input type="checkbox" name="Futbol" value="Futbol" />
+                <br>
+                <label>Basketball</label>
+                <input type="checkbox" name="Basketball" value="Basketball" />
+                <br>
+                <label>Surf</label>
+                <input type="checkbox" name="Surf" value="Surf" />
+                <br>
+                <label>Downhill</label>
+                <input type="checkbox" name="Downhill" value="Downhill" />
+                <br>
+                <input type="button" name="Enviar" value="Enviar"/>
+                
+            </form>
+        </article>
+    </section>
+</body>
+
+</html>
