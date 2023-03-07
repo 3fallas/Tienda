@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns="http://w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{layout/plantilla::head}">
+    <meta charset="UTF-8" />
+    <title>TechShop</title>
+</head>
+
+<body>
+    <section th:fragment="botonesAgregar" class="py-4 mb-4 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-primary btn-block" data-bs-toggle="modal"
+                        data-bs-target="#agregarCliente">
+                        <i class="fas fa-user-plus"></i>
+                        Agregar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section th:fragment="agregarCliente">
+        <div id="agregarCliente" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-content">
+                <div class="modal-header bg-info text-white">
+                    <h5 class="modal-title">
+                        Agregar cliente
+                    </h5>
+                    <button type="buttom" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+
+                    </button>
+                </div>
+                <form th:action="@{/guardarCliente}" method="post" th:object="${cliente}">
+                    <input type="hidden" name="idCliente" th:field="*{idCliente}">
+                    <label>Nombre</label>
+                    <input type="text" required="true" name="nombre" th:field="*{nombre}" size="20" />
+                    <br>
+                    <label>Apellidos</label>
+                    <input type="text" name="apellidos" th:field="*{apellidos}" size="30" />
+                    <br>
+                    <label>Correo</label>
+                    <input type="email" name="correo" th:field="*{correo}" size="40" />
+                    <br>
+                    <label>Telefono</label>
+                    <input type="tel" name="telefono" th:field="*{telefono}" />
+                    <br>
+                    <input type="submit" name="guardar" value="Guardar" />
+                </form>
+            </div>
+        </div>
+    </section>
+    <section>
+        <h2>Listado de clientes</h2>
+        <a th:href="@{/cliente/nuevo}" class="btn btn-primary"><i class="fas fa-user-plus"></i> Nuevo Cliente</a>
+        <div th:if="${clientes != null and !clientes.empty}">
+            <table>
+                <tr>
+                    <td>
+                        Nombre
+                    </td>
+                    <td>
+                        Apellidos
+                    </td>
+                    <td>
+                        Correo electronico
+                    </td>
+                    <td>
+                        Numero de telefono
+                    </td>
+                </tr>
+                <tr th:each="cliente : ${clientes}">
+                    <td>
+                        [[${cliente.nombre}]]
+                    </td>
+                    <td>
+                        [[${cliente.apellidos}]]
+                    </td>
+                    <td>
+                        [[${cliente.correo}]]
+                    </td>
+                    <td>
+                        [[${cliente.telefono}]]
+                    </td>
+                    <td>
+                        <a th:href="@{eliminar/} + ${cliente.idCliente}" class="btn btn-danger"> <i
+                                class="fas fa-trash"></i> Eliminar</a>
+                        <a th:href="@{modificar/} + ${cliente.idCliente}" class="btn btn-success"> <i
+                                class="fas fa-pencil"></i> Modificar</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div th:if="${clientes == null or clientes.empty}">
+            <h2>No hay clientes que mostrar ;(</h2>
+        </div>
+    </section>
+</body>
+
+</html>
